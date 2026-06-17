@@ -1,0 +1,309 @@
+@import "tailwindcss";
+
+/* =========================
+   BASE
+========================= */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #050505;
+  color: white;
+  font-family: Inter, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* =========================
+   HERO GLOW (BIAR KERASA HIDUP)
+========================= */
+.hero-blur {
+  position: fixed;
+  inset: 0;
+  z-index: -5;
+
+  background:
+    radial-gradient(circle at 50% 30%, rgba(255, 0, 120, 0.12), transparent 45%),
+    radial-gradient(circle at 30% 70%, rgba(0, 200, 255, 0.08), transparent 50%);
+
+  filter: blur(70px);
+  animation: pulseGlow 6s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGlow {
+  from {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  to {
+    transform: scale(1.15);
+    opacity: 0.9;
+  }
+}
+
+/* =========================
+   MOVING LIGHT
+========================= */
+.moving-light {
+  position: fixed;
+  inset: -60%;
+  z-index: -4;
+  pointer-events: none;
+
+  background: linear-gradient(
+    120deg,
+    transparent 50%,
+    rgba(255, 0, 120, 0.03),
+    transparent 65%
+  );
+
+  animation: lightMove 16s linear infinite;
+}
+
+@keyframes lightMove {
+  0% {
+    transform: rotate(0deg) translateX(-6%);
+  }
+  100% {
+    transform: rotate(360deg) translateX(6%);
+  }
+}
+
+/* =========================
+   GRID FUTURISTIC
+========================= */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+
+  background:
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+
+  background-size: 90px 90px;
+
+  mask-image: radial-gradient(circle at center, black 40%, transparent 85%);
+
+  animation: gridMove 30s linear infinite;
+
+  pointer-events: none;
+}
+
+@keyframes gridMove {
+  from { transform: translateY(0px); }
+  to { transform: translateY(80px); }
+}
+
+/* NAVBAR HARUS STABIL (NO POPUP EFFECT) */
+nav .glass {
+  transform: none !important;
+  transition: none !important;
+}
+
+nav .glass:hover {
+  transform: none !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+/* =========================
+   GLASS CARD (PRO)
+========================= */
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  transition: all 0.3s ease;
+
+  transform-style: preserve-3d;
+}
+
+.glass:hover {
+  transform: translateY(-10px) scale(1.02);
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.6),
+    0 0 30px rgba(255, 0, 120, 0.15);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+a {
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  transform: scale(1.05);
+}
+
+/* =========================
+   NOISE TEXTURE
+========================= */
+.noise {
+  position: fixed;
+  inset: 0;
+  opacity: 0.02;
+
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* =========================
+   CURSOR GLOW
+========================= */
+.cursor-glow {
+  position: fixed;
+  width: 400px;
+  height: 400px;
+
+  background: radial-gradient(
+    circle,
+    rgba(255, 0, 120, 0.12),
+    transparent 70%
+  );
+
+  border-radius: 50%;
+  pointer-events: none;
+
+  transform: translate(-50%, -50%);
+
+  z-index: 50;
+
+  filter: blur(90px);
+
+  mix-blend-mode: screen;
+
+  transition: left 0.05s linear, top 0.05s linear;
+}
+
+
+.benefit-card {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* glow halus saat hover */
+.benefit-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: radial-gradient(
+    circle at top left,
+    rgba(255, 0, 120, 0.08),
+    transparent 60%
+  );
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-10px);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.4),
+    0 0 25px rgba(255, 0, 120, 0.1);
+}
+
+.benefit-card:hover::before {
+  opacity: 1;
+}
+
+/* =========================
+   APPLE BACKGROUND
+========================= */
+.cta-apple-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  background:
+    radial-gradient(circle at 50% 40%, rgba(255, 0, 120, 0.08), transparent 60%),
+    radial-gradient(circle at 30% 70%, rgba(0, 180, 255, 0.04), transparent 65%);
+
+  filter: blur(90px);
+  opacity: 0.7;
+
+  animation: appleFloat 10s ease-in-out infinite alternate;
+}
+
+@keyframes appleFloat {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
+/* =========================
+   APPLE CARD (CLEAN GLASS)
+========================= */
+.apple-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(22px);
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  border-radius: 32px;
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.4);
+
+  transition: all 0.3s ease;
+}
+
+.apple-card:hover {
+  transform: translateY(-6px);
+}
+
+/* =========================
+   APPLE BUTTON (MINIMAL PREMIUM)
+========================= */
+.apple-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  backdrop-filter: blur(10px);
+
+  transition: all 0.25s ease;
+}
+
+.apple-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: scale(1.04);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+
+/* =========================
+   FOOTER BASE GLOW
+========================= */
+.footer-glow {
+  position: relative;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.typewriter-fixed {
+  display: inline-block;
+  min-width: 100%;
+  white-space: nowrap;
+}
