@@ -84,7 +84,7 @@ const Hero = () => {
                         </a>
 
                         <a
-                            href="https://wa.me/628123456789"
+                            href="https://wa.me/6285711019996"
                             target="_blank"
                             className="glass px-8 py-4 rounded-full hover:scale-105 transition"
                         >

@@ -20,7 +20,7 @@ const CTASection = () => {
 
                 {/* tombol CTA */}
                 <a
-                    href="https://wa.me/628123456789"
+                    href="https://wa.me/6285711019996"
                     target="_blank"
                     className="apple-btn inline-block mt-10 px-10 py-4 rounded-full text-white font-medium"
                 >

@@ -26,7 +26,7 @@ const Navbar = () => {
 
                 {/* RIGHT - CTA */}
                 <a
-                    href="https://wa.me/628123456789"
+                    href="https://wa.me/6285711019996"
                     target="_blank"
                     className="bg-pink-500 hover:bg-pink-400 transition px-5 py-2 rounded-full font-medium text-sm"
                 >
